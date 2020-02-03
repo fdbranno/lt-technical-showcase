@@ -1,3 +1,4 @@
+import com.lt.exception.EmptyAlbumException;
 import com.lt.model.Photo;
 import com.lt.util.DataRetriever;
 import org.junit.Assert;
@@ -9,13 +10,21 @@ public class DataRetrieverTest {
 
     @Test
     public void invalidAlbumIdTest() {
-        List<Photo> photos = DataRetriever.getPhotos(-1);
-        Assert.assertEquals(photos.size(), 0);
+        try {
+            DataRetriever.getPhotos(-1);
+            Assert.fail();
+        } catch (EmptyAlbumException e) {
+            //Expected behavior
+        }
     }
 
     @Test
     public void albumSizeTest() {
-        List<Photo> photos = DataRetriever.getPhotos(1);
-        Assert.assertEquals(photos.size(), 50);
+        try {
+            List<Photo> photos = DataRetriever.getPhotos(1);
+            Assert.assertEquals(photos.size(), 50);
+        } catch (EmptyAlbumException e) {
+            Assert.fail();
+        }
     }
 }

@@ -1,5 +1,6 @@
 package com.lt;
 
+import com.lt.exception.EmptyAlbumException;
 import com.lt.model.Photo;
 import com.lt.util.DataRetriever;
 
@@ -24,17 +25,16 @@ public class Main {
                     //Retrieve list of photos
                     List<Photo> photos = DataRetriever.getPhotos(albumId);
 
-                    if (photos.size() == 0) {
-                        System.out.println("Album does not exist or is empty");
-                    } else {
-                        for (Photo photo : photos) {
-                            System.out.println(photo.toString());
-                        }
+                    for (Photo photo : photos) {
+                        System.out.println(photo.toString());
                     }
                 } catch (NumberFormatException e) {
                     System.out.println("Argument '" + args[0] + "' must be an integer");
                     usage();
                     System.exit(1);
+                } catch (EmptyAlbumException e) {
+                    System.out.println(e.getMessage());
+                    System.exit(0);
                 }
             }
         }
