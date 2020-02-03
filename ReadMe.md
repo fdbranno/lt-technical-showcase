@@ -1,5 +1,5 @@
 # Photo Album
-Simple console application that displays photo ids and titles in an album. The photos are available in an online web servive (https://jsonplaceholder.typicode.com/photos).
+Simple console application that displays photo ids and titles in an album. The photos are available pulled from an online web servive (https://jsonplaceholder.typicode.com/photos).
 
 ## Prerequisites
 - Maven 3+
@@ -30,4 +30,9 @@ The application accepts an integer for the Id of the album to view.
     [1] accusamus beatae ad facilis cum similique qui sunt
     [2] reprehenderit est deserunt velit ipsam
     [3] officia porro iure quia iusto qui ipsa ut modi
+    ...
+    > java -jar photo-album-1.0-SNAPSHOT.jar 27
+    [1301] natus maxime neque explicabo
+    [1302] sit iste expedita quae ut sapiente
+    [1303] officiis voluptates nihil illo aut rerum blanditiis est
     ...
