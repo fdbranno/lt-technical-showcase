@@ -1,0 +1,8 @@
+.target/
+
+# Intellij
+.idea/
+*.iml
+
+# Eclipse
+.project
